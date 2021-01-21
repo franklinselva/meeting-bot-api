@@ -1,6 +1,7 @@
 import os
 from sys import argv
-from transcriber import transcribe_gcs
+
+from utils.transcriber import transcribe_gcs
 
 os.environ["GOOGLE_APPLICATION_CREDENTIALS"]="./config/service-client-rk.json"
 

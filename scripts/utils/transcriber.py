@@ -1,7 +1,7 @@
 import os
-from process_video import process_video
-from google_upload import upload_to_gcloud
-from format_response import format_transcript
+from .process_video import process_video
+from .google_upload import upload_to_gcloud
+from .format_response import format_transcript
 from google.cloud import speech
 
 def transcribe_gcs(mp4_file):

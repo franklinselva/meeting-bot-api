@@ -8,6 +8,8 @@ from django.shortcuts import render, get_object_or_404, redirect
 from django.template import loader
 from django.http import HttpResponse
 from django import template
+import subprocess
+import sys
 
 from django.shortcuts import render
 from django.conf import settings
@@ -57,12 +59,16 @@ def pages(request):
 
 @login_required(login_url="/login/")
 def simple_upload(request):
-    if request.method == 'POST' and request.FILES['uploadfile01']:
-        myfile = request.FILES['uploadfile01']
+    if request.method == 'POST' and request.FILES['video']:
+        myfile = request.FILES['video']
         fs = FileSystemStorage()
         filename = fs.save(myfile.name, myfile)
         uploaded_file_url = fs.url(filename)
-        return render(request, 'core/layout-vertical.html', {
+        video = os.system('python3 ../../main.py')
+        
+        #video= subprocess.run([sys.executable,'../../main.py'], capture_output=True, text=True, check=True)
+        print(video)
+        return render(request, 'core/templates/layout-vertical.html', {
             'uploaded_file_url': uploaded_file_url
         })
-    return render(request, 'core/layout-vertical.html')
+    return render(request, 'core/templates/layout-vertical.html')

@@ -1,0 +1,35 @@
+
+<html>
+    <head>
+        <title> Trancript </title>
+    </head>
+
+
+<body>
+
+    
+    <form action="/external/" method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+       
+
+       <input type="file" name="video" required>
+        <br><br>
+        <input type="submit" value="Execute External Python Script">
+    
+    </form>
+
+
+
+    
+
+</main>
+
+<footer class="container">
+    <h3 style = " text-align: center;"> Contact </h3>
+
+    <p style = "text-align:center;"> MailId : <a href = " testmail@gmail.com"> testmail@gmail.com </a> </p> 
+    <p style = "text-align:center;"> Mobile Number : 1234567890 </p>
+</footer>
+</body>
+
+</html>

@@ -14,6 +14,9 @@ from django.conf import settings
 from django.core.files.storage import FileSystemStorage
 import os
 
+from subprocess import run, PIPE
+import sys
+
 @login_required(login_url="/login/")
 def results(request):
     module_dir = os.path.dirname(__file__)  
@@ -66,3 +69,20 @@ def simple_upload(request):
             'uploaded_file_url': uploaded_file_url
         })
     return render(request, 'core/layout-vertical.html')
+
+
+@login_required(login_url="/login/")
+def external(request):
+    video=request.FILES['video']
+    print("video is ",video)
+    fs=FileSystemStorage()
+    filename=fs.save(video.name,video)
+    fileurl=fs.open(filename)
+    templateurl=fs.url(filename)
+    print("file raw url",filename)
+    print("file full url", fileurl)
+    print("template url",templateurl)
+    video= run([sys.executable,'../../main.py',str(fileurl),str(filename)],shell=True,stdout=PIPE)
+   
+    print(video.stdout)
+    return render(request,'core/templates/layout-vertical.html',{'raw_url':templateurl,'edit_url':video.stdout})

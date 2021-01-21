@@ -4,6 +4,7 @@ Copyright (c) 2019 - present AppSeed.us
 """
 
 from django.contrib.auth.decorators import login_required
+from django.core.files import utils
 from django.shortcuts import render, get_object_or_404, redirect
 from django.template import loader
 from django.http import HttpResponse
@@ -19,15 +20,29 @@ import os
 from subprocess import run, PIPE
 import sys
 
+from app.utils.transcriber import transcribe_gcs
+
+
+os.environ["GOOGLE_APPLICATION_CREDENTIALS"]="/Users/franklinselva/Documents/freelancing/meeting-bot-api/config/service-client-rk.json"
+transcribedFile = None
+
 @login_required(login_url="/login/")
 def results(request):
-    module_dir = os.path.dirname(__file__)  
-    file_path = os.path.join(module_dir, 'test.txt')   #full path to text.
-    data_file = open(file_path , 'r')       
-    data = data_file.read()
-    context = {'data': data}
-    return render(request, 'core/results.html',context)
-
+    context = {}
+    context['segment'] = 'index'
+    
+    if transcribedFile is not None:
+        module_dir = os.path.dirname(__file__)  
+        file_path = os.path.join(module_dir, 'test.txt')   #full path to text.
+        data_file = open(file_path , 'r')       
+        data = data_file.read()
+        context = {'data': data}
+        return render(request, 'core/results.html',context)
+    else:
+        html_template = loader.get_template( 'page-404.html' )
+        return HttpResponse(html_template.render(context, request))
+    
+    
 @login_required(login_url="/login/")
 def index(request):
     
@@ -60,39 +75,36 @@ def pages(request):
         html_template = loader.get_template( 'page-500.html' )
         return HttpResponse(html_template.render(context, request))
 
-@login_required(login_url="/login/")
-def simple_upload(request):
-    if request.method == 'POST' and request.FILES['video']:
-        myfile = request.FILES['video']
-        fs = FileSystemStorage()
-        filename = fs.save(myfile.name, myfile)
-        uploaded_file_url = fs.url(filename)
-        video = os.system('python3 ../../main.py')
-        
-        #video= subprocess.run([sys.executable,'../../main.py'], capture_output=True, text=True, check=True)
-        print(video)
-        return render(request, 'core/templates/layout-vertical.html', {
-            'uploaded_file_url': uploaded_file_url
-        })
-<<<<<<< HEAD
-    return render(request, 'core/templates/layout-vertical.html')
-=======
-    return render(request, 'core/layout-vertical.html')
-
 
 @login_required(login_url="/login/")
-def external(request):
+def transcribe(request):
+    """ Enables the transcribing part from video to text
+
+    Args:
+        directory ([string]): [Give the directory of the video file]
+    """
     video=request.FILES['video']
-    print("video is ",video)
+    # print("video is ",video)
     fs=FileSystemStorage()
     filename=fs.save(video.name,video)
     fileurl=fs.open(filename)
     templateurl=fs.url(filename)
-    print("file raw url",filename)
-    print("file full url", fileurl)
-    print("template url",templateurl)
-    video= run([sys.executable,'../../main.py',str(fileurl),str(filename)],shell=True,stdout=PIPE)
-   
-    print(video.stdout)
-    return render(request,'core/templates/layout-vertical.html',{'raw_url':templateurl,'edit_url':video.stdout})
->>>>>>> 4b4f7edb0f5c2bc9ce8148eb54a43788fac96133
+    # print("file raw url",filename)
+    # print("file full url", fileurl)
+    # print("template url",templateurl)
+    
+    directoryAdd = os.path.join(os.getcwd(), "scripts/django/media")
+    file = os.path.join(directoryAdd,filename)
+    
+    print ("Transcribing Video: {}".format(file))
+    if file.endswith(".mp4"):
+        transcribe_gcs(file)
+    else:
+        pass
+    
+    # return render(request,'core/layout-vertical.html')
+    context = {}
+    context['segment'] = 'layout-vertical'
+
+    html_template = loader.get_template( 'layout-vertical.html' )
+    return HttpResponse(html_template.render(context, request))

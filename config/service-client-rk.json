@@ -1,0 +1,12 @@
+{
+  "type": "service_account",
+  "project_id": "meeting-transcriber-ph1",
+  "private_key_id": "a0d57adf29b7e3af4fe1f7058e4b745a9593f4e7",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvgIBADANBgkqhkiG9w0BAQEFAASCBKgwggSkAgEAAoIBAQC/qtIm6GxQrIjG\n6rgNY8yWj/gqmJpt1uJWS2+Yz07Qvcvro/Hz4ZkF5OeaBJ+cNPuC1sg1yZlqGj5/\nbifz5LrjtzcgssCNFvtm32KzZBYFn9Oy5BbXBdhmP5PfxQYMhplagWz1jUixsXLU\nbVsqSjIEzBrkAtWQ6SAX0VfrOx6OWaxJ2LNJ/yyuqGG459RtCIwlsHNiSmBG/85Q\nSdQINhAt7cr54FMl8HMRXnuPI93OUXASLRXmoUyc6oqZpE+fUyDlT82cbpTOs76V\nWuMCtpSBt1l1LxJR8wvlVbUY/rfN9an9paL1dXUD6A0WJJrF4OWHgmCmH/HJIbK7\n+Sdz4NSDAgMBAAECggEAMpB0r5oKlT/nN58Nnk6xVxk1Lbujpg2WGZD+KHCsiMpB\nhXFzb9UY4yKv7QSCPRoHLk3OdM4yIHk6+rBLbv7tRQz9SK2PuckR2uJc7hmd667u\nERg2ZFSg8dyc/OBEB8LsqyFQ5vj2cBZxxlPxRJddWcGk6HlM8VVnR5FNYfvvRDs0\nIdkZfO0r9Xlj+67QKVQTQGmrEpCkCS1oDp1PxDWlpI9s5mz2+W6lNEwZqWvE5+PQ\nSfXQ6mjF/wGYZDOo5tyrl4e+1D/iPEfpYDJLkF7TthrYf+rV7V2Ix9RYu92Aax5O\nrqAj14aksA4u5mAdgeztPjcF+2DcCSAa9kUQ23bCsQKBgQDhJyKnQtNm8l28XQOH\nS5y774kG5nj59ZkI4RZNasPF3ON0WrX+mk3K/1KkNY7oSEHWamuijEw7zsAgIsUY\nG82dQDL2q5Su3ubPbasRSw1k7RmQhAs7i+0HsXuj+g8eB32NfEwUR7/jyqQzUsCP\nk8rVc+jMdH3x+VVRxGOrxp4+EQKBgQDZ7Tu/DDe7AYPYQXyziArunB0rnLcZ/gS9\ne55de1VJRQYVADILx5IunLiXXrahzAbRNLTM1WrZAJLbNJMFKdBxsFxY9zjnyuKj\ncmf5LqJWKQuF5p1pVZyezvb0KcsL1E18YwsPa42haW7dXEMX3LY9KSlx7N96VGtu\nR7mBgLZlUwKBgQC2hmxwXhtVRLw6vMjkgKayMJDMWEDQmoqSiS70Wc4V9GksZXFO\n0raoD25mksikhBdjhGh3oPcYMRbNtoJDdh6tEWN/Vz+0uB0zIXviDA7yt8fWwUT9\n5ASnDPnnyAtDU90zuwVOF5B3UUrmFHroqm5vtoSOYw3LAU9qdyQ6GE0mkQKBgHkY\nc0exAVLf/6Rul12nrfNzOl5eofxGg9nK1HA7tWOWgE+xIR4ckqVmHsi2L6PunKcp\ns4HS4aGdyP0X1M5csuBJ0Lb7AVsECTYrv4zelgRsoGOSh0vd777rYJzCkHqNSVVi\nL+YsrLHRxXIp73pWAcowkkAlEPWH7X6FSpaksDXTAoGBAIF/GlMQdUEMDybYxMJh\nMmWHgPjvehlAAfVzl2YHy2HXdHbdzJteQmFy31nrQv/hql+VKJpsj8f3yBDHCjr4\nKop0LFzXvgrY21u3rG6PpK1yTTcpcERd8Mum0iBaGxNaqoLxBxDA/CJuOh/ii3N2\n9MPwUlSFiUf5APQUPsx0KZqW\n-----END PRIVATE KEY-----\n",
+  "client_email": "meeting-transcriber@meeting-transcriber-ph1.iam.gserviceaccount.com",
+  "client_id": "112116496202204281305",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://oauth2.googleapis.com/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/meeting-transcriber%40meeting-transcriber-ph1.iam.gserviceaccount.com"
+}

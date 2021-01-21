@@ -1,0 +1,467 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <title>
+        Demobot - AI Meeting transcriber - {% block title %}{% endblock %} | Shared Meetings
+    </title> 
+
+    <!-- HTML5 Shim and Respond.js IE11 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 11]>
+    	<script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    	<script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    	<![endif]-->
+    <!-- Meta -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimal-ui">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="description" content="" />
+    <meta name="keywords" content="">
+    <meta name="author" content="Codedthemes" />
+    <!-- Favicon icon -->
+    <link rel="icon" href="/static/assets/images/favicon.ico" type="image/x-icon">
+
+    <!-- prism css -->
+    <link rel="stylesheet" href="/static/assets/css/plugins/prism-coy.css">
+    <!-- vendor css -->
+    <link rel="stylesheet" href="/static/assets/css/style.css">
+
+</head>
+<body>
+    
+    <!-- [ Pre-loader ] start -->
+    <div class="loader-bg">
+        <div class="loader-track">
+            <div class="loader-fill"></div>
+        </div>
+    </div>
+    <!-- [ Pre-loader ] End -->
+
+
+	<!-- [ navigation menu ] start -->
+    {% include 'includes/sidebar.html' %}
+    <!-- [ navigation menu ] end -->
+
+    <!-- [ Header ] start -->
+    <header class="navbar pcoded-header navbar-expand-lg navbar-light headerpos-fixed headerpos-fixed header-blue">
+        <div class="m-header">
+            <a class="mobile-menu" id="mobile-collapse" href="#!"><span></span></a>
+            <a href="#!" class="b-brand">
+                <!-- ========   change your logo hear   ============ -->
+                <img src="/static/assets/images/logo.png" alt="" class="logo">
+                <img src="/static/assets/images/logo-icon.png" alt="" class="logo-thumb">
+            </a>
+            <a href="#!" class="mob-toggler">
+                <i class="feather icon-more-vertical"></i>
+            </a>
+        </div>
+        <div class="collapse navbar-collapse">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item">
+                    <a href="#!" class="pop-search"><i class="feather icon-search"></i></a>
+                    <div class="search-bar">
+                        <input type="text" class="form-control border-0 shadow-none" placeholder="Search here">
+                        <button type="button" class="close" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                </li>
+                <li class="nav-item">
+                    <a href="#!" class="full-screen" onclick="javascript:toggleFullScreen()"><i class="feather icon-maximize"></i></a>
+                </li>
+            </ul>
+            <ul class="navbar-nav ml-auto">
+                <li>
+                    <div class="dropdown">
+                        <a class="dropdown-toggle" href="#" data-toggle="dropdown"><i class="icon feather icon-bell"></i><span class="badge bg-danger"><span class="sr-only"></span></span></a>
+                        <div class="dropdown-menu dropdown-menu-right notification">
+                            <div class="noti-head">
+                                <h6 class="d-inline-block m-b-0">Notifications</h6>
+                                <div class="float-right">
+                                    <a href="#!" class="m-r-10">mark as read</a>
+                                    <a href="#!">clear all</a>
+                                </div>
+                            </div>
+                            <ul class="noti-body">
+                                <li class="n-title">
+                                    <p class="m-b-0">NEW</p>
+                                </li>
+                                <li class="notification">
+                                    <div class="media">
+                                        <img class="img-radius" src="/static/assets/images/user/avatar-1.jpg" alt="Generic placeholder image">
+                                        <div class="media-body">
+                                            <p><strong>John deoo</strong><span class="n-time text-muted"><i class="icon feather icon-clock m-r-10"></i>5 min</span></p>
+                                            <p>New ticket Added</p>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li class="n-title">
+                                    <p class="m-b-0">EARLIER</p>
+                                </li>
+                                <li class="notification">
+                                    <div class="media">
+                                        <img class="img-radius" src="/static/assets/images/user/avatar-2.jpg" alt="Generic placeholder image">
+                                        <div class="media-body">
+                                            <p><strong>Joseph William</strong><span class="n-time text-muted"><i class="icon feather icon-clock m-r-10"></i>10 min</span></p>
+                                            <p>Prchace New Theme and make payment</p>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li class="notification">
+                                    <div class="media">
+                                        <img class="img-radius" src="/static/assets/images/user/avatar-1.jpg" alt="Generic placeholder image">
+                                        <div class="media-body">
+                                            <p><strong>Sara Soudein</strong><span class="n-time text-muted"><i class="icon feather icon-clock m-r-10"></i>12 min</span></p>
+                                            <p>currently login</p>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li class="notification">
+                                    <div class="media">
+                                        <img class="img-radius" src="/static/assets/images/user/avatar-2.jpg" alt="Generic placeholder image">
+                                        <div class="media-body">
+                                            <p><strong>Joseph William</strong><span class="n-time text-muted"><i class="icon feather icon-clock m-r-10"></i>30 min</span></p>
+                                            <p>Prchace New Theme and make payment</p>
+                                        </div>
+                                    </div>
+                                </li>
+                            </ul>
+                            <div class="noti-footer">
+                                <a href="#!">show all</a>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+                <li>
+                    <div class="dropdown drp-user">
+                        <a href="#!" class="dropdown-toggle" data-toggle="dropdown">
+                            <img src="/static/assets/images/user/avatar-1.jpg" class="img-radius wid-40" alt="User-Profile-Image">
+                        </a>
+                        <div class="dropdown-menu dropdown-menu-right profile-notification">
+                            <div class="pro-head">
+                                <img src="/static/assets/images/user/avatar-1.jpg" class="img-radius" alt="User-Profile-Image">
+                                <span>John Doe</span>
+                                <a href="auth-signin.html" class="dud-logout" title="Logout">
+                                    <i class="feather icon-log-out"></i>
+                                </a>
+                            </div>
+                            <ul class="pro-body">
+                                <li><a href="user-profile.html" class="dropdown-item"><i class="feather icon-user"></i> Profile</a></li>
+                                <li><a href="email_inbox.html" class="dropdown-item"><i class="feather icon-mail"></i> My Messages</a></li>
+                                <li><a href="auth-signin.html" class="dropdown-item"><i class="feather icon-lock"></i> Lock Screen</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </header>
+    <!-- [ Header ] end -->
+
+    <!-- [ Main Content ] start -->
+    <div class="pcoded-main-container">
+        <div class="pcoded-wrapper">
+            <div class="pcoded-content">
+                <div class="pcoded-inner-content">
+                    <div class="main-body">
+                        <div class="page-wrapper">
+                            <!-- [ breadcrumb ] start -->
+                            <div class="page-header">
+                                <div class="page-block">
+                                    <div class="row align-items-center">
+                                        <div class="col-md-12">
+                                            <div class="page-header-title">
+                                                <h5 class="m-b-10">Shared Meetings</h5>
+                                            </div>
+                                            <ul class="breadcrumb">
+                                                <li class="breadcrumb-item"><a href="index.html"><i class="feather icon-home"></i></a></li>
+                                                <li class="breadcrumb-item"><a href="#!">My meetings</a></li>
+                                                <li class="breadcrumb-item"><a href="#!">Shared Meetings</a></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- [ breadcrumb ] end -->
+                            <!-- [ Main Content ] start -->
+
+                            <div class="row btn-page">
+                                <!-- [ fixed-layout ] start -->
+                                <div class="col-md-auto col-xl-auto">
+                                    <div class="card">
+                                        <div class="card-body">
+                                            <button type="button" class="btn btn-outline-primary" data-toggle="modal" data-target="#uploadfile""><i class="feather mr-2 icon-plus"></i>Add</button>
+                                            <button type="button" class="btn btn-outline-warning"><i class="feather mr-2 icon-edit"></i>Modify</button>
+                                            <button type="button" class="btn btn-outline-danger"><i class="feather mr-2 icon-trash"></i>Delete</button>
+                                            
+                                            
+                                            <!-- Modal -->
+                                            <div class="modal fade" id="uploadfile" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                                                <div class="modal-dialog modal-dialog-centered" role="document">
+                                                <div class="modal-content">
+                                                    <div class="modal-header">
+                                                    <h5 class="modal-title" id="exampleModalLongTitle">Add Meeting Recordings</h5>
+                                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                        <span aria-hidden="true">&times;</span>
+                                                    </button>
+                                                    </div>
+                                                    <!-- Upload files -->
+                                                    <div class="modal-body" method="post" enctype="multipart/form-data"> 
+                                                        <form>
+                                                            <div class="input-group mb-3">
+                                                                <div class="custom-file">
+                                                                  <input type="file" class="custom-file-input" id="uploadfile01">
+                                                                  <label class="custom-file-label" for="uploadfile01">Choose file</label>
+                                                                </div>
+                                                                <div class="input-group-append">
+                                                                  <span class="input-group-text" id="">Upload</span>
+                                                                </div>
+                                                                {% if uploaded_file_url %}
+                                                                    <p>File uploaded at: <a href="{{ uploaded_file_url }}">{{ uploaded_file_url }}</a></p>
+                                                                {% endif %}
+                                                            </div>
+                                                            <div class="form-group">
+                                                              <label for="exampleInputTitle" id="meetingName">Title</label>
+                                                              <input type="text" class="form-control" id="exampleInputTitle" aria-describedby="titleHelp" placeholder="Enter title">
+                                                              <small id="titleHelp" class="form-text text-muted">Give title for the transcribed recording</small>
+                                                            </div>
+                                                        </form>
+                                                    </div>
+                                                    <div class="modal-footer">
+                                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+                                                    <button type="button" class="btn btn-primary" data-dismiss="modal" id="transcribe">Transcribe</button>
+                                                    </div>
+                                                </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-sm-12">
+                                    <div class="card">
+                                        <div class="card-header">
+                                            <h5></h5>
+                                        </div>
+                                        <div class="card-body">
+                                            <p>{{data}}</p>
+                                            <!-- <div class="alert alert-info mb-0" role="alert">
+                                                <p class="mb-0">It is best suited for those applications where you need the sidebar & header elements easily accessible every time when you scroll the page.</p>
+                                            </div> -->
+                                        </div>
+                                    </div>
+
+                                    <div class="card accordion md-accordion" id="accordionEx" role="tablist" aria-multiselectable="true">
+
+                                        <!-- Card header -->
+                                        <div class="card-header" role="tab" id="headingOne1">
+                                          <a data-toggle="collapse" data-parent="#accordionEx" href="#collapseOne1" aria-expanded="true"
+                                            aria-controls="collapseOne1">
+                                            <h5 class="mb-0">
+                                              TEDx Talk with XXX <i class="fas fa-angle-down rotate-icon"></i>
+                                            </h5>
+                                          </a>
+                                        </div>
+                                    
+                                        <!-- Card body -->
+                                        <div id="collapseOne1" class="collapse" role="tabpanel" aria-labelledby="headingOne1"  data-parent="#accordionEx">
+                                          <div class="card-body">
+                                            dr. Martin Luther King jr. in a 1968 speech where he reflects upon the Civil Rights Movement states in the end we will remember not the words of our enemies
+                                            but the Silence of our friends
+                                            as a teacher I've internalized this message everyday all around us we see the consequences of Silence manifest themselves in the form of discrimination violence genocide and War in the classroom I challenge my students to explore the silences in their own lives the Poetry we work together to fill those spaces to recognize and name them to understand that they don't have to be sources of Shame
+                                            in an effort to create a culture within my classroom where students feel safe during the intimacy is of their own silences I have four core principles posted on the board that sits in the front of my class which every student signs the beginning of the year
+                                            read critically write consciously speak clearly tell your truth
+                                            I find myself thinking a lot about that last Point tell your truth
+                                            and I realized that if I was going to ask my students to speak up I was going to have to tell my truth and be honest with them about the X Y I failed to do so
+                                            do I tell them that growing up as a kid in a Catholic Family in New Orleans during Lent I was always taught that the most meaningful thing one could do with the give something up sacrifice something you typically indulgent to prove to God you understand it's sanctity I've given up soda McDonald's french fries french kisses and everything in between
+                                            but one year
+                                            I gave up speaking take in the most valuable thing I could sacrifice with my own voice but it was like I hadn't realized
+                                            but I had given that up a long time ago I spent so much of my life telling people to things they wanted to hear instead of the things they needed to told myself I wasn't meant to be anyone's conscience because I still have to figure out how being my own so sometimes
+                                            I just wouldn't say anyting appeasing ignorance with my silence underwear that validation doesn't need words to endorse its existence when Christian was beat up for being gay I put my hands in my pocket and walk with my head down as if I didn't even notice couldn't use my locker for weeks because the bolt on the lock reminded me of the one I put on my lips when the homeless man on the corner looked at me with eyes up really searching for an affirmation that he was worse things I was more concerned with touching the screen of my apple and actually feeding him one when the woman at the fundraising Gala to them so proud of you must be so hard to turn those poor unintelligent kids I bit my lip cuz apparently we needed her money with a my students needed their dignity we spend so much time
+                                            listening to the things people are saying
+                                            that we really pay attention to the things they don't
+                                            silence is the residue of fear is feeling your flaws French Guillotine your tongue it is a are retreating from your chest because it doesn't feel safe in your lungs silent is Rwandan Genocide silence is Katrina is what you hear when there aren't enough body back left it is a sound after the news is already tied it is charging and exchange it is privilege it is pain there is no time to pick your battles when your battles have already picked you I will not let silence wrap itself around my indecision I will tell Christian that he is a lion a sanctuary of bravery and Brilliance I will at that homeless man what's his name is now we've day was because sometimes all people want to be if human I will tell that woman that my students to talk about transcendentalism like their last name was the role it just because you watch one episode of The Wire doesn't mean you know anything about my kids so this year
+                                            instead of giving something up I will live everyday as if it were a microphone tucked under my tongue stays on the underside of my inhibition
+                                            because you have to have a soapbox when all you've ever needed
+                                            is your voice thank you
+                                          </div>
+                                        </div>
+                                    
+                                      </div>
+
+                                    <div class="card">
+                                        <div class="card-header">
+                                            <h5>Zoom meeting on Lecture HUMRO</h5>
+                                        </div>
+                                        <div class="card-body">
+                                            <p>Transcribed recording summary goes here.</p>
+                                            <!-- <div class="alert alert-info mb-0" role="alert">
+                                                <p class="mb-0">It is best suited for those applications where you need the sidebar & header elements easily accessible every time when you scroll the page.</p>
+                                            </div> -->
+                                        </div>
+                                    </div>
+
+                                    <div class="card">
+                                        <div class="card-header">
+                                            <h5>Meeting on 29/12/2020</h5>
+                                        </div>
+                                        <div class="card-body">
+                                            <p>Transcribed recording summary goes here.</p>
+                                            <!-- <div class="alert alert-info mb-0" role="alert">
+                                                <p class="mb-0">It is best suited for those applications where you need the sidebar & header elements easily accessible every time when you scroll the page.</p>
+                                            </div> -->
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- [ fixed-layout ] end -->
+                            </div>
+                            <!-- [ Main Content ] end -->
+                            <!-- [ Main Content ] start -->
+                            <!-- <div class="row">
+                                <div class="col-md-6">
+                                    <div class="card">
+                                        <div class="card-header">
+                                            <h5>Inline Text Elements</h5>
+                                        </div>
+                                        <div class="card-body">
+                                            <p class="lead m-t-0">Your title goes here</p>
+                                            You can use the mark tag to
+                                            <mark>highlight</mark> text.
+                                            <br>
+                                            <del>This line of text is meant to be treated as deleted text.</del>
+                                            <br>
+                                            <ins>This line of text is meant to be treated as an addition to the document.</ins>
+                                            <br>
+                                            <strong>rendered as bold text</strong>
+                                            <br>
+                                            <em>rendered as italicized text</em>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="card">
+                                        <div class="card-header">
+                                            <h5>Contextual Text Colors</h5>
+                                        </div>
+                                        <div class="card-body">
+                                            <p class="text-muted mb-1">
+                                                Fusce dapibus, tellus ac cursus commodo, tortor mauris nibh.
+                                            </p>
+                                            <p class="text-primary mb-1">
+                                                Nullam id dolor id nibh ultricies vehicula ut id elit.
+                                            </p>
+                                            <p class="text-success mb-1">
+                                                Duis mollis, est non commodo luctus, nisi erat porttitor ligula.
+                                            </p>
+                                            <p class="text-info mb-1">
+                                                Maecenas sed diam eget risus varius blandit sit amet non magna.
+                                            </p>
+                                            <p class="text-warning mb-1">
+                                                Etiam porta sem malesuada magna mollis euismod.
+                                            </p>
+                                            <p class="text-danger mb-1">
+                                                Donec ullamcorper nulla non metus auctor fringilla.
+                                            </p>
+                                            <p class="text-dark mb-1">
+                                                Nullam id dolor id nibh ultricies vehicula ut id elit.
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6 col-lg-4">
+                                    <div class="card">
+                                        <div class="card-header">
+                                            <h5>Unordered</h5>
+                                        </div>
+                                        <div class="card-body">
+                                            <ul>
+                                                <li>Lorem ipsum dolor sit amet</li>
+                                                <li>Consectetur adipiscing elit</li>
+                                                <li>Integer molestie lorem at massa</li>
+                                                <li>Facilisis in pretium nisl aliquet</li>
+                                                <li>Nulla volutpat aliquam velit
+                                                    <ul>
+                                                        <li>Phasellus iaculis neque</li>
+                                                        <li>Purus sodales ultricies</li>
+                                                        <li>Vestibulum laoreet porttitor sem</li>
+                                                        <li>Ac tristique libero volutpat at</li>
+                                                    </ul>
+                                                </li>
+                                                <li>Faucibus porta lacus fringilla vel</li>
+                                                <li>Aenean sit amet erat nunc</li>
+                                                <li>Eget porttitor lorem</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6 col-lg-4">
+                                    <div class="card">
+                                        <div class="card-header">
+                                            <h5>Ordered</h5>
+                                        </div>
+                                        <div class="card-body">
+                                            <ol>
+                                                <li>Lorem ipsum dolor sit amet</li>
+                                                <li>Consectetur adipiscing elit</li>
+                                                <li>Integer molestie lorem at massa</li>
+                                                <li>Facilisis in pretium nisl aliquet</li>
+                                                <li>Nulla volutpat aliquam velit
+                                                    <ul>
+                                                        <li>Phasellus iaculis neque</li>
+                                                        <li>Purus sodales ultricies</li>
+                                                        <li>Vestibulum laoreet porttitor sem</li>
+                                                        <li>Ac tristique libero volutpat at</li>
+                                                    </ul>
+                                                </li>
+                                                <li>Faucibus porta lacus fringilla vel</li>
+                                                <li>Aenean sit amet erat nunc</li>
+                                                <li>Eget porttitor lorem</li>
+                                            </ol>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-12 col-lg-4">
+                                    <div class="card">
+                                        <div class="card-header">
+                                            <h5>Unstyled</h5>
+                                        </div>
+                                        <div class="card-body">
+                                            <ul class="list-unstyled">
+                                                <li>Lorem ipsum dolor sit amet</li>
+                                                <li>Integer molestie lorem at massa
+                                                    <ul>
+                                                        <li>Phasellus iaculis neque</li>
+                                                    </ul>
+                                                </li>
+                                                <li>Faucibus porta lacus fringilla vel</li>
+                                                <li>Eget porttitor lorem</li>
+                                            </ul>
+                                            <h5>Inline</h5>
+                                            <hr>
+                                            <ul class="list-inline m-b-0">
+                                                <li class="list-inline-item">Lorem ipsum</li>
+                                                <li class="list-inline-item">Phasellus iaculis</li>
+                                                <li class="list-inline-item">Nulla volutpat</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div> -->
+
+                            </div>
+                            <!-- [ Main Content ] end -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- [ Main Content ] end -->
+
+    {% include 'includes/scripts.html' %}
+
+    <!-- prism Js -->
+    <script src="/static/assets/js/plugins/prism.js"></script>
+
+</body>
+</html>

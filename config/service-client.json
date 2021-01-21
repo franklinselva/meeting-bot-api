@@ -1,0 +1,12 @@
+{
+  "type": "service_account",
+  "project_id": "handwriting-extraction",
+  "private_key_id": "b0c8de9f29cad3d45352d041fa25df54aaa66312",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvQIBADANBgkqhkiG9w0BAQEFAASCBKcwggSjAgEAAoIBAQC7FIdoZG50oHbc\nPZXyAwOcemQWaFoIu31XKHbhP3v8fOfPj39wkq2XYd/Ue/0wwae4AdFvedm8aoIf\n2BcuPUdj2cC5TBWtP+cWhSq7Cu1DYlFK5SGUoidxdYoV2Oy+LtREKt5AlMEPnGvZ\nfC/tkae2QuSTTHXFHAVvbQDbWT3YCPXjp2iw3X6IpBDEm+tZLV7587gegOQF44S3\nne7DJBb4Eablo3wkUwFKWqf/8WgkIqy9hjun/Bz5eUo4dbBiBTyFR8FDAWEM9vQs\nVFaqJAwYVq2+rkSLSfJRQb7is0ycHmBSZGb/BGbCShUPvtzS0MzbkEwpJvkd429l\ntKKxtkK9AgMBAAECggEAOMzg1+c2Sh62N+RS9GnJ3OakINGKFICoa6ATiAw4Xs6l\nqzVMYieGoSHMTb1fgEAr5ghXSFtcqoJEA9seHqHoXP6uLxRUuIdgaEwCT0vgAceG\nGxE6guBAzYf8Zum3535cYF4LoNwJSe4aKKw1+RFyNDpXIAnk7/W0CMK1seOEjWSV\n/0lXyBgYdMEmzHHvBkii2/NI+Z3NLjv/FVuafqA3xCpWIYV2OY+oInm1ABuFkjCf\n7loWnC4aMcElTeOz7ujiTMK6x51G6jAwG6gK+dbAIO7GbSWwYmTCYtmZUMGQSU9C\nkyaZ8Tuc9TCwBzEOTq6IWpYM6m5uJJh7Tdyp+6QG2QKBgQDm0vBwHUPFdbUB8gzu\ns7rf/aJPE3O9XjGgCWiEerl2CPH+sbxdZETVtsR12MvCsTAd0USbur1SW8GsPYfX\nlLT+wkvs0JIFnNb4JP+JMqs+lV/TcV0QH+aa5VJl+nLEg7EW9/HqQT3IRhf4E3M7\niFWj4ltmGLbXa2DcHhPgBBtnywKBgQDPfC1E+tXz4nYTTg8cCRvRjLGvRx+xZbsJ\nYazV8HvWedBMUX+8POeg9e75s3PmKrESHSU7FSUvH8V4/biIt/ItlM8DEUyCoi8I\nj87JRiYNM1CCMwS2O4Nkf4RAdT92lkIpmH7tV+LK1d+nmek26+HdpM2Rh+qhcI2J\nwTvyj17elwKBgEvvaRn5BqqXJo0VTBvbFMdLcXICPDk4G6tCbRfoJ8sk9jeL0SQI\nMHz+O3Npdt79245zodZ5gH7voK9BLsdFLKYC1Wd61g7yoeXQhiBkguF70qKE0NDV\nLdAXURwrYEY17LRZrUQbYm/YX1pFS8tx9nqLpPXZe40yzhKb8n3n2/wxAoGBALIr\nKuCCGTmNbOFU9YqYk8fU7jvacm+uMPd0ZattD5p0DheLIIovLqQ8q9LGc67hWB56\n4p6ioMSfnr4v+ceFVbQohb9XmoDO7l6GxwZ1c3WAbBDx6IjoAANLsPB8/ltB2lzH\ns67x+jE9iQnuE6Ly2Yiv3UqsESJCeXgic+ztioTPAoGAMGbC2RwVsQ99Nt846Wot\nnw+vHPiEMjpI+OnhSzMraq4LmPDzS3wDoa2lmoF7C5L31VzBrI0cZ19Smo9SSqJ2\nUSmpBtJD8fTvMAA8tNOCrae2HQE0UhD1Ghn2L3BqNY8Vo77rczKOL39zvJxuGyZV\nzosk3H/RbegnB0lVz7pmiVc=\n-----END PRIVATE KEY-----\n",
+  "client_email": "speech-recognition@handwriting-extraction.iam.gserviceaccount.com",
+  "client_id": "105063631410157912498",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://oauth2.googleapis.com/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/speech-recognition%40handwriting-extraction.iam.gserviceaccount.com"
+}

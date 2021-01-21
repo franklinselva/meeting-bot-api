@@ -207,6 +207,17 @@
                                                         <span aria-hidden="true">&times;</span>
                                                     </button>
                                                     </div>
+                                                    <form action="/external/" method="post" enctype="multipart/form-data">
+                                                        {% csrf_token %}
+                                                       
+                                                
+                                                       <input type="file" name="video" required>
+                                                        <br><br>
+                                                        <input type="submit" value="Execute External Python Script">
+                                                    
+                                                    </form>
+                                                
+                                                
                                                     <!-- Upload files -->
                                                     <div class="modal-body" >
                                                     <form action="/simple_upload/" method="post" enctype="multipart/form-data">

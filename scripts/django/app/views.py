@@ -105,6 +105,11 @@ def transcribe(request):
     
     # Update file name
     transcribedFile = file.strip(".mp4") + ".txt"
+    content = None 
+    with open (transcribedFile, 'r') as file:
+        content = file.read()
+        
+    # print (content)
     
     html_template = loader.get_template( 'layout-vertical.html' )
-    return HttpResponse(html_template.render(context, request))
+    return HttpResponse(html_template.render(context, request)) #, {'result': content}), content_type='text/plain')

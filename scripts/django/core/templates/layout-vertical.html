@@ -295,7 +295,11 @@
                                             <h5>Zoom meeting on Lecture HUMRO</h5>
                                         </div>
                                         <div class="card-body">
-                                            <p>Transcribed recording summary goes here.</p>
+                                            {% if result %} 
+                                            
+                                            <p>{{result}}</p>
+
+                                            {% endif %}
                                             <!-- <div class="alert alert-info mb-0" role="alert">
                                                 <p class="mb-0">It is best suited for those applications where you need the sidebar & header elements easily accessible every time when you scroll the page.</p>
                                             </div> -->

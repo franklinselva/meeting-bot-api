@@ -29,11 +29,11 @@ transcribedFile = None
 @login_required(login_url="/login/")
 def results(request):
     context = {}
-    context['segment'] = 'index'
+    context['segment'] = 'layout-vertical'
     
     if transcribedFile is not None:
         module_dir = os.path.dirname(__file__)  
-        file_path = os.path.join(module_dir, 'test.txt')   #full path to text.
+        file_path = os.path.join(module_dir, transcribedFile)   #full path to text.
         data_file = open(file_path , 'r')       
         data = data_file.read()
         context = {'data': data}
@@ -41,7 +41,6 @@ def results(request):
     else:
         html_template = loader.get_template( 'page-404.html' )
         return HttpResponse(html_template.render(context, request))
-    
     
 @login_required(login_url="/login/")
 def index(request):
@@ -75,7 +74,6 @@ def pages(request):
         html_template = loader.get_template( 'page-500.html' )
         return HttpResponse(html_template.render(context, request))
 
-
 @login_required(login_url="/login/")
 def transcribe(request):
     """ Enables the transcribing part from video to text
@@ -83,12 +81,15 @@ def transcribe(request):
     Args:
         directory ([string]): [Give the directory of the video file]
     """
+    context = {}
+    context['segment'] = 'layout-vertical'
+    
     video=request.FILES['video']
-    # print("video is ",video)
     fs=FileSystemStorage()
     filename=fs.save(video.name,video)
     fileurl=fs.open(filename)
     templateurl=fs.url(filename)
+
     # print("file raw url",filename)
     # print("file full url", fileurl)
     # print("template url",templateurl)
@@ -102,9 +103,8 @@ def transcribe(request):
     else:
         pass
     
-    # return render(request,'core/layout-vertical.html')
-    context = {}
-    context['segment'] = 'layout-vertical'
-
+    # Update file name
+    transcribedFile = file.strip(".mp4") + ".txt"
+    
     html_template = loader.get_template( 'layout-vertical.html' )
     return HttpResponse(html_template.render(context, request))
